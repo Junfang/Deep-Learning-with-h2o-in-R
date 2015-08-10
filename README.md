@@ -5,7 +5,7 @@ This body of work is around systematically employing deep learning on a large nu
 
 I'm in the process of building in automated optimization and model averaging, extending to regression problems, and defining various systematic analyses (e.g. new visualizations of networks) which would aim to turn into journal paper. Please feel free to fork and collaborate. Enjoy and please let me know if you have any questions/comments. 
 
-Due to the volume and size of datasets, I can't upload them to the repository. I had to do some pretty extensive cleaning and various modifications so if you would like to use the exact data please just send me an email.
+Due to the volume and size of datasets, I can't upload them to the repository. I had to do some pretty extensive cleaning and various modifications so if you would like to use the exact data you can access it from my [dropbox here](https://www.dropbox.com/s/aohtnb5vpic6zza/ml-datasets.zip?dl=0)
 
 Author
 John Mercer (analyticsurgeon at gmail.com)
