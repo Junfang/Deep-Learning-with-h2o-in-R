@@ -3,8 +3,14 @@
 
 
 
+
+
+
 ## read con file
-conFile = read.table('./random/random_con.txt', stringsAsFactors=F, header=TRUE)
+# conFile = read.table('./random/random_con.txt', stringsAsFactors=F, header=TRUE)
+conFile = read.table('./random/random_incon.txt', stringsAsFactors=F, header=TRUE)
+conFile = read.table('./random/random_inconOld.txt', stringsAsFactors=F, header=TRUE)
+ 
 
 str(conFile)
 head(conFile)
@@ -83,8 +89,7 @@ for (i in txtFiles){
 
  	## keep only the first response if more than two repsones for one pic 
  	## index for 'repsone'
- 	index4reponseAll = which(txtF3tmp[,1]=='Response') 
- 	## length(index4reponseAll)
+ 	index4reponseAll = which(txtF3tmp[,1]=='Response')
  	## remove the last index
  	index4reponseAllv1 = index4reponseAll[-length(index4reponseAll)]
  	index4reponseAllv2 = c(-2, index4reponseAllv1)
@@ -171,7 +176,7 @@ for (i in txtFiles){
 	# head(dataTyp1)
 
 	## If response == team 
-	dataTyp1Response = dataTyp1[which(dataTyp1[,'Response']==dataTyp1[,'Team']),]
+	dataTyp1Response = dataTyp1[which(dataTyp1[,'Response']!=dataTyp1[,'Team']),]
 	dim(dataTyp1Response)
 	# head(dataTyp1Response)
 	team1_facetime = dataTyp1Response[which(dataTyp1Response[,'Team']==1),] 
@@ -200,7 +205,7 @@ for (i in txtFiles){
 	# dim(dataTyp2)
 	# head(dataTyp2)
 
-	index4reponseTeam = which(dataTyp2[,'Response']==dataTyp2[,'Team'])
+	index4reponseTeam = which(dataTyp2[,'Response']!=dataTyp2[,'Team'])
 	dataTyp2_metric = nrow(dataTyp2[index4reponseTeam,])
 	# calculate RT 
 	dataTyp2_metric.RT = mean(dataTyp2[index4reponseTeam,'difRT']) 
@@ -211,7 +216,7 @@ for (i in txtFiles){
 	# head(dataTyp3)
 
 	## If response == Ethnicity 
-	dataTyp3Response = dataTyp3[which(dataTyp3[,'Response']==dataTyp3[,'Ethnicity']),]
+	dataTyp3Response = dataTyp3[which(dataTyp3[,'Response']!=dataTyp3[,'Ethnicity']),]
 	# dim(dataTyp3Response)
 	# head(dataTyp3Response)  
 	Eth1_faceOrig = dataTyp3Response[which(dataTyp3Response[,'Ethnicity']==1),] 
@@ -240,7 +245,7 @@ for (i in txtFiles){
 	dataTyp4 = dataTmp2[which(dataTmp2[,'group']=='form_form'), ]
 	# dim(dataTyp4)
 	# head(dataTyp4)
-	index4reponseTeamFormForm = which(dataTyp4[,'Response']==dataTyp4[,'Team'])
+	index4reponseTeamFormForm = which(dataTyp4[,'Response']!=dataTyp4[,'Team'])
 	dataTyp4_metric = nrow(dataTyp4[index4reponseTeamFormForm,])
 	dataTyp4_metric.RT = mean(dataTyp4[index4reponseTeamFormForm,'difRT'])
  
@@ -275,6 +280,7 @@ metricFinal = metricFinaltmp
 # write.csv2(metric, file='metric.csv')
 # write.csv2(metric.RT, file='metric.RT.csv')
 write.csv2(metricFinal, file='metricFinal.csv')
+
 
 
 this.is.first.run <- FALSE
